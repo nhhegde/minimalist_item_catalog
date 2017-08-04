@@ -251,7 +251,7 @@ def user_catalog(user_id):
     items = session.query(Item).filter_by(user_id=user.id)
     categories = session.query(
         Item.category.distinct()).filter_by(user_id=user_id).all()
-    count = session.query(Item).filter_by(user_id="TEST").count()
+    count = session.query(Item).filter_by(user_id=user_id).count()
     categories = [c[0] for c in categories]  # unpacking column tuples
     return render_template('user_catalog.html',
                            user=user,
