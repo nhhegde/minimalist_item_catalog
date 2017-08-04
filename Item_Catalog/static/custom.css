@@ -1,0 +1,20 @@
+main {
+    display: flex;
+}
+
+section {
+    max-width: 50%;
+    min-width: 30%;
+}
+#page_header_text {
+    text-align: center;
+    width: 100%;
+}
+header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+#flashed-messages {
+    margin: 0 auto;
+}  

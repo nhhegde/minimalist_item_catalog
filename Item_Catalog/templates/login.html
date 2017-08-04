@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+        <link rel="stylesheet" href="/static/custom.css">
+    </head>
+
+    <body>
+    <header>
+        <div id="page_header_text">
+            <h1 id="title">Minimalist Catalog</h1>
+        </div>
+        <div id="signInButton">
+          <span class="g-signin"
+            data-scope="openid email"
+            data-clientid="614145770670-41hh95tvp1370nntpb9v758i5be9dfqb.apps.googleusercontent.com"
+            data-redirecturi="postmessage"
+            data-accesstype="offline"
+            data-cookiepolicy="single_host_origin"
+            data-callback="signInCallback"
+            data-approvalprompt="force">
+          </span>
+        </div>
+        <div id="result">
+        </div>
+    </header>
+    <main>
+    </main>
+        <script>
+        function signInCallback(authResult) {
+            // $('#result').append('signInCallback called', authResult)
+            // console.log(authResult)
+            // console.log(authResult['code'])
+            // console.log(typeof authResult['code'])
+
+            if (Boolean(authResult['code'])) {
+                // $('#result').append("authResult['code'] exists", authResult['code'], authResult['code'])
+                $('#signInButton').hide();
+                $.ajax({
+                    type: 'POST',
+                    url: '/gconnect?state={{STATE}}',
+                    processData: false,
+                    contentType: 'application/octet-stream; charset=urf-8',
+                    // login_session_code: authResult['code'], 
+                    data: authResult['code'],
+                    success: function(result) {
+                        if (result) {
+                            $('#result').html('Login Successful!</br>Redirecting')
+                            setTimeout(function() {
+                                window.location.href = "/postLogin";
+
+                            }, 4000)
+                        } else if (authResult['error']) {
+                            console.log('There was an error: {}'.format())
+                        } else {
+                            $('#result').html('Failed to connected to google, no response was received. Check your configuration and console. Is your connection unstable?');
+                        }
+                    },
+                    error: function(result) {
+                        console.log('The Ajax authentication request failed')
+                        console.log(result)
+                    }
+
+
+                })
+            }
+        }
+        </script>
+    </body>
+
+
+</html>

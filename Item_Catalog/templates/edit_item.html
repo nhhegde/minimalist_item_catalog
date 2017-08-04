@@ -1,0 +1,30 @@
+<html>
+<head>
+    <!-- <link rel="stylesheet" href="/static/custom.css"> -->
+</head>
+
+<body>
+    <header>
+        <div id="page_header_text">
+            <h1> Edit Item </h1>
+        </div>
+    </header>
+
+    <main>
+        <form action="{{url_for('editItem', user_id=user_id, item_id = item_id )}}" method = 'POST'>
+        <p>Name: <input type='text' size='30' name='name' value = '{{ i.name }}'></p>
+        <p>Category: <input type='text' size='30' name='category' value = '{{ i.category }}'></p>
+        <p>Description:
+        <textarea type='text' size='200' name='description' value = '{{ i.description }}'></textarea>
+        </p>
+        <br>
+        <input type='submit' value='Save'>
+        <button class="cancel"><a href="{{url_for('viewItem', user_id=user_id, item_id=item_id)}}">Cancel</a></button>
+
+    </form>
+
+    
+
+    </main>
+</body>
+</html>

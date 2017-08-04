@@ -1,0 +1,81 @@
+<html>
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    function hashChanged() {
+        $("li.item").show()
+        $("#hash_filter").html('(none)')
+        current_category=window.location.hash.replace('#','')
+        if(current_category != '' && current_category != '(none!)') {
+            $("li.item[category!=" + current_category + "]").hide()
+            $("span#hash_filter").html(current_category)
+
+        }
+    }
+    window.onhashchange = hashChanged
+    </script>
+    <link rel="stylesheet" href="/static/custom.css">
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="page_header_text">
+            <h1>Minimalist Catalog</h1>
+            <h2>{{user.username}}'s {{count}} items</h2>
+        </div>
+        <div>
+            <a href="{{url_for('newItem', user_id = user.id)}}">Add New Item</a>
+            <a href="{{url_for('gdisconnect')}}">Log Out</a>
+
+        </div>
+
+        <ul id="flashed-messages">
+        {% for message in get_flashed_messages() %}
+            <li>
+                <strong> {{ message }} </strong>
+            </li>
+        {% endfor %}
+        </ul>
+    </header>
+
+    <main>
+        <section id="categories">
+            <h2>Categories</h2>
+            <span>
+                <em>filtering by: <span id="hash_filter">(none)</span></em>
+                <br>
+                <a href="#(none!)"><em>clear</em></a>
+            </span>
+            {% for category in categories %}
+            <ul class="categories">
+            
+            <li class="category">
+                <a href="#{{category}}"><em>{{ category }}</em></a>
+            </li>
+            
+            </ul>
+            {% endfor %}
+        </section>
+        
+        <section id="items">
+            <h2>Items</h2>
+            {% for i in items %}
+            <ul>
+
+                <li class="item" category="{{i.category}}">
+                    <a href="{{url_for('viewItem', user_id = user.id, item_id = i.id)}}" class="item-name">{{i.name}}</a><em class="item-category"> ({{i.category}})</em>
+
+            <!--         <p class="item-description"> {{i.description}} </p>
+             -->
+                    <a href="{{url_for('viewItem', user_id = user.id, item_id = i.id)}}">View</a>
+                </li>
+            </ul>
+            {% endfor %}
+        </section>
+    </main>
+
+</body>
+</html>

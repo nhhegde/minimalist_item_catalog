@@ -1,0 +1,22 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/static/custom.css">
+</head>
+<body>
+    <header>
+        <div id="page_header_text">
+            <h1> New Menu Item </h1>
+        </div>
+    </header>
+    <main>
+        <form action="{{url_for('newItem', user_id=user_id )}}" method = 'POST'>
+        <p>Name: <input type='text' size='30' name='name'></p>
+        <p>Category: <input type='text' size='30' name='category'></p>
+        <p>Description: <input type='text' size='120' name='description'></p>
+        <input type='submit' value='Create'>
+        </form>
+
+        <button><a href='/'>Cancel</a></button>        
+    </main>
+</body>
+</html>

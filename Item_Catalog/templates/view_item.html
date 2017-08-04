@@ -1,0 +1,21 @@
+<html>
+<head>
+    <!-- <link rel="stylesheet" href="/static/custom.css"> -->
+</head>
+<body>
+    <header>
+            <div id="page_header_text">
+                <h2 class="item-name"><em>Name:</em> {{item.name}}</h1>
+            </div>
+            <a href="{{url_for('editItem', user_id = user_id, item_id = item.id)}}">Edit</a>
+            <a href="{{url_for('deleteItem', user_id = user_id, item_id = item.id)}}">Delete</a>
+            <a href="{{url_for('user_catalog', user_id = user_id)}}">Back to Catalog</a>
+    </header>
+    <main>
+    <p class="item-category"><em>Category:</em> {{item.category}}</p>
+    <p class="item-description"> <em>Description:</em> {{item.description}} </p>
+    
+    </main>
+</body>
+</html>
+
