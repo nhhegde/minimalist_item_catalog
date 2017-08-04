@@ -41,8 +41,8 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 
- CLIENT_ID = json.loads(
-     open('client_secrets.json', 'r').read())['web']['client_id']
+CLIENT_ID = json.loads(
+    open('client_secrets.json', 'r').read())['web']['client_id']
 
 @app.route('/')
 @app.route('/login')
@@ -78,8 +78,8 @@ def gconnect():
     try:
         # uses auth code to get a credentials object
         oauth_flow = flow_from_clientsecrets('client_secrets.json', scope='')
-        #oauth_flow.redirect_uri = 'postmessage'
-        oauth_flow.redirect_uri = '34.208.64.45.xip.io/postLogin'
+        oauth_flow.redirect_uri = 'postmessage'
+        #oauth_flow.redirect_uri = '34.208.64.45.xip.io/postLogin'
         credentials = oauth_flow.step2_exchange(login_session_code)
         access_token = credentials.access_token
         # print(access_token)
