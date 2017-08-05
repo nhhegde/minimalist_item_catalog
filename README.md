@@ -5,6 +5,8 @@ This project was created with the following dependencies, but could run fine wit
 `sqlalchemy=1.1.11`
 `oauth2client=4.1.2`
 
+This project is deployed on amazon lightsail. The server is not kept up continuously. 
+
 #Setup
 
 Run the following commands to setup the database:
