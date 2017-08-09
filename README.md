@@ -1,4 +1,4 @@
-#Requirements
+# Requirements
 This project was created with the following dependencies, but could run fine with other versions of python3 and compatible libraries
 `python=3.4`
 `flask=0.12.2`
@@ -7,13 +7,13 @@ This project was created with the following dependencies, but could run fine wit
 
 This project is deployed on amazon lightsail. The server is not kept up continuously. 
 
-#Setup
+# Setup
 
 Run the following commands to setup the database:
 -`python3 database_setup.py` -- Creates the database and sqlalchemy orm mapping. WARNING, DELETES EXISTING DATABASE OF THE SAME NAME (sqlite:///user_item_catalog.db) BEFORE CREATING
 -`python3 add_test_user.py` -- Adds test_user to the database, which can be accessed at any time by accessing the localhost:8080/test after running the server. test_user's id is `"TEST"` and username is `"test_user"`.
 
-#Usage
+# Usage
 
 Run the following command to start the server:
 
@@ -21,12 +21,12 @@ Run the following command to start the server:
 The server can be reached at localhost:8080
 
 
-#Debugging
+# Debugging
 
 The database can be directly queried by running"
 `python3 -i query_database.py`
 
-#API
+# API
 
 The following routes can be used to access a JSON api. 
 You must be authenticated (login with google) in order to interact with the api. Or you can login to the test_user at localhost:8080/test. Again, test_user's user_id is `"TEST"`
