@@ -36,12 +36,12 @@ sudo login grader
 
 
 ######## ssh-keygen
-#don't use sudo at all
+*don't use sudo, permissions aren't the right ones*
 mkdir .ssh
 touch .ssh/authorized_keys
 nano .ssh/authorized_keys
 copy grader_key to /home/.ssh/authorized_keys
-# DON'T DO THIS ONE: chmod 700 .ssh
+*This step caused problems on lightsail, although it was recommended: chmod 700 .ssh*
 sudo chmod 644 .ssh/authorized_keys
 #try logging in
 
@@ -57,7 +57,7 @@ sudo service ssh status
 sudo service ssh restart
 
 #### firewalls
-sudo ufw status
+`sudo ufw status
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow ssh
@@ -66,10 +66,10 @@ sudo ufw allow www
 sudo ufw allow ntp
 
 sudo ufw allow from {your-ip-address}
-sudo ufw enable
-// check if everything still works from a different ip
+sudo ufw enable`
+check if everything still works from a different ip
 
-sudo ufw delete allow from {your-ip-address}.
+`sudo ufw delete allow from {your-ip-address}.`
 
 
 
@@ -80,11 +80,11 @@ sudo ufw delete allow from {your-ip-address}.
 
 
 # setup server
-sudo apt-get update
+`sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install nginx
 pip3 install gunicorn
-pip3 install flask sqlalchemy requests oauth2client
+pip3 install flask sqlalchemy requests oauth2client`
 
 xip.io was setup because I used google for authentication and 
 
@@ -97,20 +97,20 @@ To switch to UTC, execute sudo dpkg-reconfigure tzdata , scroll to the bottom of
 
 
 
-mkdir ~/app/a2
+`mkdir ~/app/a2
 cd ~/app/a2
-git clone git://github.com/nhhegde/minimalist_item_catalog.git
+git clone git://github.com/nhhegde/minimalist_item_catalog.git`
 
-// nginx config in /etc/nginx/sites-available/default
-cd minimalist_item_catalog
+nginx config in /etc/nginx/sites-available/default
+`cd minimalist_item_catalog
 sudo cp default /etc/nginx/sites-available/default
 sudo service nginx start
-sudo service nginx status
+sudo service nginx status`
 
-// Run gunicorn
-cd ~/app/a2/minimalist_item_catalog/Item_Catalog
-gunicorn -w 4 item_catalog_server:app & --daemon
-//Note this is already running. (gunicorn -w 4 item_catalog_server:app)
+Run gunicorn
+`cd ~/app/a2/minimalist_item_catalog/Item_Catalog
+gunicorn -w 4 item_catalog_server:app & --daemon`
+Note this is already running. (gunicorn -w 4 item_catalog_server:app)
 
 
 Resources 
