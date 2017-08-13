@@ -11,9 +11,9 @@ Which runs:
 ## Query the database
 How to query the sqlite database using sqlalchemy.
 
-1. login to [ubuntu]
+`1. login to [ubuntu]
 2. cd to ~/app/a2/minimalist_item_catalog/Item_Catalog
-3. run python3 -i query_database.py
+3. run python3 -i query_database.py`
 
 I recommend starting with:
 `test_user = session.query(User).filter_by(id="TEST").one()`
@@ -39,12 +39,12 @@ sudo login [ubuntu]
 
 ######## ssh-keygen
 *don't use sudo, permissions aren't the right ones*
-mkdir .ssh
+`mkdir .ssh
 touch .ssh/authorized_keys
 nano .ssh/authorized_keys
 copy [ubuntu]_key to /home/.ssh/authorized_keys
 *This step caused problems on lightsail, although it was recommended: chmod 700 .ssh*
-sudo chmod 644 .ssh/authorized_keys
+sudo chmod 644 .ssh/authorized_keys`
 #try logging in
 
 
