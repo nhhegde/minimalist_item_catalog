@@ -1,15 +1,17 @@
-## How to Login to grader
+## Server Currently Paused, not accepting new connections. 
+
+## How to Login to [ubuntu]
 `./ssh_login`
 
 Which runs:
 
-`ssh grader@34.208.64.45 -i grader_key -p 2200`
-### Password: "thebestgraderever" to run sudo. Note: this does require a private key to authenticate. Password authentication has been disabled.
+`ssh [ubuntu]@34.208.64.45 -i user_key -p 2200`
+### Password: "thebest[ubuntu]ever" to run sudo. Note: this does require a private key to authenticate. Password authentication has been disabled.
 
 ## Query the database
 How to query the sqlite database using sqlalchemy.
 
-1. login to grader
+1. login to [ubuntu]
 2. cd to ~/app/a2/minimalist_item_catalog/Item_Catalog
 3. run python3 -i query_database.py
 
@@ -29,10 +31,10 @@ WARNING: THIS APP CANNOT BE ACCESSED OVER HTTPS AND USES GOOGLE OAUTH FOR AUTHEN
 
 nginx + gunicorn. 
 
-#### Create user: grader, password: thebestgraderever
-sudo adduser grader
-sudo usermod -aG sudo grader
-sudo login grader
+#### Create user: [ubuntu], password: thebest[ubuntu]ever
+sudo adduser [ubuntu]
+sudo usermod -aG sudo [ubuntu]
+sudo login [ubuntu]
 
 
 ######## ssh-keygen
@@ -40,7 +42,7 @@ sudo login grader
 mkdir .ssh
 touch .ssh/authorized_keys
 nano .ssh/authorized_keys
-copy grader_key to /home/.ssh/authorized_keys
+copy [ubuntu]_key to /home/.ssh/authorized_keys
 *This step caused problems on lightsail, although it was recommended: chmod 700 .ssh*
 sudo chmod 644 .ssh/authorized_keys
 #try logging in
