@@ -4,7 +4,10 @@ This project was created with the following dependencies, but could run fine wit
 `flask=0.12.2`  
 `sqlalchemy=1.1.11`  
 `oauth2client=4.1.2`  
+`postgresql 9.6`
+`psycopg2`
 
+The use of a virtual environment is recommended for installation. 
 This project is deployed on amazon lightsail. The server is not kept up continuously.  
 
 # Setup
