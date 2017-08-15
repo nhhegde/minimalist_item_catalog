@@ -43,7 +43,7 @@ class Item(Base):
 
 # At end of file
 if __name__ == '__main__':
-    engine = create_engine('sqlite:///user_item_catalog.db')
+    engine = create_engine('postgresql:///user_item_catalog.db')
     # Drop existing database
     User.__table__.drop(engine)
     Base.metadata.drop_all(engine)
