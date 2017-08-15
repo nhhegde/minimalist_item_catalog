@@ -34,7 +34,7 @@ import requests
 
 app = Flask(__name__)
 app.secret_key = 'super_secret_key'
-engine = create_engine('sqlite:///user_item_catalog.db')
+engine = create_engine('postgresql:///user_item_catalog.db')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
