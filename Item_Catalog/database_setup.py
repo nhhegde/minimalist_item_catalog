@@ -18,6 +18,11 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship  # foregin key relationship
 from sqlalchemy import create_engine  # maps
 
+# A better way to specify which [postgresql] database to connect to.
+# psql_url = 'postgresql://{}:{}@{}:{}/{}'
+# psql_url = psql_url.format(user, password, host, port, db)
+
+
 # declarative_base is a function
 # that returns an sqlalchemy.ext.declarative.api.Base class.
 Base = declarative_base()
@@ -43,8 +48,11 @@ class Item(Base):
 
 # At end of file
 if __name__ == '__main__':
-    engine = create_engine('postgresql:///user_item_catalog.db')
+    engine = create_engine('postgresql://postgres:postgresql@localhost:5432/user_item_catalog')
     # Drop existing database
-    User.__table__.drop(engine)
-    Base.metadata.drop_all(engine)
+    try: 
+        User.__table__.drop(engine)
+        Base.metadata.drop_all(engine)
+    except:
+        pass
     Base.metadata.create_all(engine)
