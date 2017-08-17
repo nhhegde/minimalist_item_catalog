@@ -4,8 +4,8 @@ This project was created with the following dependencies, but could run fine wit
 `flask=0.12.2`  
 `sqlalchemy=1.1.11`  
 `oauth2client=4.1.2`  
-`postgresql=9.6`
-`psycopg2=2.7.3`
+`postgresql=9.6`  
+`psycopg2=2.7.3`  
 
 The use of a virtual environment is recommended for installation. 
 
@@ -25,7 +25,7 @@ WARNING: THIS SITE CANNOT BE ACCESSED OVER HTTPS AND USES GOOGLE OAUTH FOR AUTHE
 - Update the database url used by sqlalchemy. See database_setup.py for details. The url should be stored in an import but is not at the moment. You will need to change every python file with the url. 
 
 Run the following commands to setup the database:  
--`python3 database_setup.py` -- Creates the database and sqlalchemy orm mapping. WARNING, DELETES EXISTING DATABASE OF THE SAME NAME BEFORE CREATING  
+-`python3 database_setup.py` -- Creates sqlalchemy orm mapping. WARNING, DELETES EXISTING TABLES OF THE SAME NAME AND THEN RE-CREATES THOSE TABLES. 
 
 -`python3 add_test_user.py` -- Adds test_user to the database, which can be accessed at any time by accessing the localhost:8080/test after running the server. test_user's id is `"TEST"` and username is `"test_user"`.  
 
@@ -39,7 +39,7 @@ The server can be reached at localhost:8080
 
 # Debugging  
 
-The database can be directly queried by running"
+The database can be directly queried by running  
 `python3 -i query_database.py`  
 
 # API
