@@ -8,7 +8,14 @@ This project was created with the following dependencies, but could run fine wit
 `psycopg2=2.7.3`
 
 The use of a virtual environment is recommended for installation. 
-This project is deployed on amazon lightsail. The server is not kept up continuously.  
+
+
+## Access the web app
+Open a web browser and navigate to:  
+http://34.208.64.45.xip.io
+This project is deployed on amazon lightsail. The server is not kept up continuously. xip.io provides wildcard DNS for any IP address, and was necessary because google oauth requires a non-ip domain name and I do not have one set up for this site at the moment. 
+
+WARNING: THIS SITE CANNOT BE ACCESSED OVER HTTPS AND USES GOOGLE OAUTH FOR AUTHENTICATION. IF YOU DON'T WANT TO RISK LEAKING YOUR GOOGLE+ ID I RECOMMEND USING A NEW ACCOUNT THAT YOU DON'T CARE ABOUT.  
 
 # Setup
 
