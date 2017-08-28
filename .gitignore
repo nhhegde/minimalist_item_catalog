@@ -5,3 +5,5 @@ Item_Catalog/include/
 Item_Catalog/lib64
 Item_Catalog/pip-selfcheck.json
 Item_Catalog/pyvenv.cfg
+Item_Catalog/__pycache__/
+Item_Catalog/client_secrets.json
